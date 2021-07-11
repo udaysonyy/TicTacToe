@@ -8,13 +8,8 @@ board = ["-", "-", "-",
          "-", "-", "-",
          "-", "-", "-", ]
 
-def display_board():
-  print(board[0] + "|" + board[1] + "|" + board[2])
-  print(board[3] + "|" + board[4] + "|" + board[5])
-  print(board[6] + "|" + board[7] + "|" + board[8])
 
 def play_game():
-  global winner
 
   display_board()
 
@@ -28,14 +23,19 @@ def play_game():
   
   if winner == "X" or winner == "O":
     print(winner +"'s Winner")
-  elif winner == "None":
+  else:
     print("Tie. ")
+
+def display_board():
+  print(board[0] + "|" + board[1] + "|" + board[2])
+  print(board[3] + "|" + board[4] + "|" + board[5])
+  print(board[6] + "|" + board[7] + "|" + board[8])
 
 
 def handle_turn(player):
 
   print(player + "'s Turn")
-  position=input("Choose postition between 1-9")
+  position = input("Choose postition between 1-9 :")
 
   valid = False
   while not valid:
@@ -43,7 +43,7 @@ def handle_turn(player):
     while position not in ["1", "2", "3", "4", "5", "6", "7", "8", "9"]:
       position = input("Provide value again")
   
-      position=int(position) - 1
+    position=int(position) - 1
 
     if board[position] == "-":
       valid = True
